@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+
+<script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+<script th:inline="javascript">
+/*<![CDATA[*/
+
+    //var message = /*[[${message}]]*/ 'default';
+    //console.log("OK);
+    
+    const appId = /*[[${applicationId}]]*/;
+    const locationId = /*[[${locationId}]]*/;
+    
+
+    
+
+/*]]>*/
+</script>
+<script type="text/javascript" th:src="@{js/square.js}"></script>
+<link th:href="@{css/square.css}" rel="stylesheet" />
+
+<title>Shopizer Square Payment Module</title>
+
+
+</head>
+<body>
+
+	 <form id="payment-form">
+	  <h1>Shopizer - Square payment module</h1>
+	  <p>This is <span th:text="${appName}"></span></p>
+      <div id="card-container"></div>
+      <button id="card-button" type="button">Pay $1.00</button>
+    </form>
+    <div id="payment-status-container"></div>
+</body>
+</html>

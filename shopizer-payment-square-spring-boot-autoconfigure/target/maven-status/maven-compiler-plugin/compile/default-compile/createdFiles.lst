@@ -1,0 +1,4 @@
+com/shopizer/payment/square/autoconfigure/SquarePaymentConfigurationProperties.class
+com/shopizer/payment/square/autoconfigure/SquarePaymentModule$1.class
+com/shopizer/payment/square/autoconfigure/SquarePaymentAutoConfiguration.class
+com/shopizer/payment/square/autoconfigure/SquarePaymentModule.class
