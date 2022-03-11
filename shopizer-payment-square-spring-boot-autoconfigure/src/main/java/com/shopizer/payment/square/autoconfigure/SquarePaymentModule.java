@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -44,6 +43,9 @@ public class SquarePaymentModule implements PaymentModule,ModuleStarter {
 	
 	private String uniqueCode;
 	private ModuleType moduleType;
+	
+	private String base64Logo;
+	private List<String> supportedCountry;
 	
 	Map<Environment, String> environments  = new HashMap<Environment, String>() {/**
 		 * 
@@ -523,6 +525,28 @@ public class SquarePaymentModule implements PaymentModule,ModuleStarter {
 	@Override
 	public ModuleType getModuleType() {
 		return this.moduleType;
+	}
+
+	@Override
+	public String getLogo() {
+		return base64Logo;
+	}
+
+	@Override
+	public List<String> getSupportedCountry() {
+		return supportedCountry;
+	}
+
+	@Override
+	public void setLogo(String arg0) {
+		base64Logo = arg0;
+		
+	}
+
+	@Override
+	public void setSupportedCountry(List<String> arg0) {
+		supportedCountry = arg0;
+		
 	}
 
 }
