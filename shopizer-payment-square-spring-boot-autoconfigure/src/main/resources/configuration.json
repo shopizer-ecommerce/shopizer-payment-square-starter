@@ -1,0 +1,51 @@
+[
+    {
+        "type": "text",
+        "label": "Application Id",
+        "placeholder": "Enter an application id",
+        "name": "square.applicationId",
+        "objectKey": "integrationKeys",
+        "isRequired": true,
+        "optionData": [],
+        "value": ""
+    },
+    {
+        "type": "text",
+        "label": "Location id",
+        "placeholder": "Enter location id",
+        "name": "square.locationId",
+        "objectKey": "integrationKeys",
+        "isRequired": true,
+        "optionData": [],
+        "value": ""
+    },
+    {
+        "type": "text",
+        "label": "Access Token",
+        "placeholder": "Enter access Token",
+        "name": "square.accessToken",
+        "objectKey": "integrationKeys",
+        "isRequired": true,
+        "optionData": [],
+        "value": ""
+    },
+    {
+        "type": "radio",
+        "label": "Transaction type",
+        "placeholder": "",
+        "name": "transaction",
+        "objectKey": "integrationKeys",
+        "isRequired": false,
+        "optionData": [
+            {
+                "label": "Pre-authorization",
+                "value": "AUTHORIZECAPTURE"
+            },
+            {
+                "label": "Sale",
+                "value": "SALE"
+            }
+        ],
+        "value": ""
+    }
+]

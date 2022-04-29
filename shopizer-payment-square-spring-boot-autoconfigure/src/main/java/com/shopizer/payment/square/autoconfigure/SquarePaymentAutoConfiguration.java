@@ -27,9 +27,9 @@ public class SquarePaymentAutoConfiguration {
     	SquarePaymentModule module = new SquarePaymentModule();
     	((ModuleStarter)module).setUniqueCode(this.properties.getUniqueCode());
     	((ModuleStarter)module).setModuleType(ModuleType.PAYMENT);
-    	
-    	System.out.println(this.properties.getSupportedCountry());
-    	System.out.println(this.properties.getLogo());
+    	((ModuleStarter)module).setLogo(properties.getLogo());
+    	((ModuleStarter)module).setSupportedCountry(properties.getSupportedCountry());
+    	((ModuleStarter)module).setConfigurable(properties.getModuleConfiguration());
     	
     	
         return module;

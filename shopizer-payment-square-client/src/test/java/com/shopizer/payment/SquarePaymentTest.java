@@ -58,7 +58,8 @@ public class SquarePaymentTest {
 	}
 
 	
-	@Ignore //requires square configuration
+	@Test
+	//@Ignore //requires square configuration
 	public void testAuthorize() {
 		
 		IntegrationConfiguration config = prepare();

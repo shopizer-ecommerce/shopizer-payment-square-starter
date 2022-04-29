@@ -1,12 +1,14 @@
 package com.shopizer.payment.square.autoconfigure;
 
-import java.io.File;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 @ConfigurationProperties("payment.square")
 public class SquarePaymentConfigurationProperties {
@@ -34,19 +36,17 @@ public class SquarePaymentConfigurationProperties {
 		String logo = null;
 		try {
 			
-	        ClassLoader classLoader = getClass().getClassLoader();
-	        File inputFile = new File(classLoader
-	          .getResource("square.png")
-	          .getFile());
-	        
-	        if(inputFile != null) {
+			Resource resource = new ClassPathResource("square.png");
+			if(resource != null) {
+				InputStream is = resource.getInputStream();
+				if(is != null) {
+					byte[] encoded = IOUtils.toByteArray(is);
+			        logo = Base64
+					          .getEncoder()
+					          .encodeToString(encoded);
+				}
+			}
 
-		        byte[] fileContent = FileUtils.readFileToByteArray(inputFile);
-		        logo = Base64
-		          .getEncoder()
-		          .encodeToString(fileContent);
- 
-	        }
 			
 			
 		} catch(Exception e) {
@@ -54,6 +54,30 @@ public class SquarePaymentConfigurationProperties {
 		}
 		
 		return logo;
+	}
+	
+	public String getModuleConfiguration() {
+		
+		String moduleConfiguration = null;
+		try {
+			
+			Resource resource = new ClassPathResource("configuration.json");
+			if(resource != null) {
+				InputStream is = resource.getInputStream();
+				if(is != null) {
+					byte[] ba = IOUtils.toByteArray(is);
+					moduleConfiguration = new String(ba);
+				}
+			}
+
+			
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return moduleConfiguration;
+		
 	}
 
 

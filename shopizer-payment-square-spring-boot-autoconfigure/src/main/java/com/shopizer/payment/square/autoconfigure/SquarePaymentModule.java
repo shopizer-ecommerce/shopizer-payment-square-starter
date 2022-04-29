@@ -66,15 +66,12 @@ public class SquarePaymentModule implements PaymentModule,ModuleStarter {
 		 */
 		
 		Validate.notNull(integrationConfiguration, "IntegrationConfiguration is required");
-		
 		if(!integrationConfiguration.getIntegrationKeys().containsKey("square.applicationId")) {
 			throw new IntegrationException("square.applicationId is required");
 		}
-		
 		if(!integrationConfiguration.getIntegrationKeys().containsKey("square.locationId")) {
 			throw new IntegrationException("square.locationId is required");
 		}
-		
 		if(!integrationConfiguration.getIntegrationKeys().containsKey("square.accessToken")) {
 			throw new IntegrationException("square.accessToken is required");
 		}
@@ -159,14 +156,14 @@ public class SquarePaymentModule implements PaymentModule,ModuleStarter {
 	
 			
 			{
-			    "idempotency_key": "7b0f3ec5-086a-4871-8f13-3c81b3875218",
+			    "idempotency_key": "7b0f3ec5-086a-4871-8f13-456789",
 			    "amount_money": {
 			      "amount": 1000,
 			      "currency": "USD"
 			    },
 			    "source_id": "ccof:GaJGNaZa8x4OgDJn4GB",
 			    "autocomplete": true,
-			    "customer_id": "W92WH6P11H4Z77CTET0RNTGFW8",
+			    "customer_id": "W92WH6P11H4Z77CTET0RNTGYHTt5",
 			    "location_id": "L88917AVBK2S5",
 			    "reference_id": "123456",
 			    "note": "Brief description",
@@ -297,14 +294,14 @@ public class SquarePaymentModule implements PaymentModule,ModuleStarter {
 	
 			
 			{
-			    "idempotency_key": "7b0f3ec5-086a-4871-8f13-3c81b3875218",
+			    "idempotency_key": "7b0f3ec5-086a-4871-8f13-3c81b387001",
 			    "amount_money": {
 			      "amount": 1000,
 			      "currency": "USD"
 			    },
-			    "source_id": "ccof:GaJGNaZa8x4OgDJn4GB",
+			    "source_id": "ccof:GaJGNaZa8x4OgDJn4TF",
 			    "autocomplete": true,
-			    "customer_id": "W92WH6P11H4Z77CTET0RNTGFW8",
+			    "customer_id": "W92WH6P11H4Z77CTET0RNTHYTW8",
 			    "location_id": "L88917AVBK2S5",
 			    "reference_id": "123456",
 			    "note": "Brief description",
@@ -314,9 +311,7 @@ public class SquarePaymentModule implements PaymentModule,ModuleStarter {
 			    }
 			  }
 			 **/
-			
-			//System.out.println(json);
-	        
+
 	        t = this.request(json, url, configuration.getIntegrationKeys().get("square.accessToken"));
 		
 			t.setAmount(amount);
@@ -496,14 +491,14 @@ public class SquarePaymentModule implements PaymentModule,ModuleStarter {
 	}
 
 
-	@Override
-	public List<String> getConfigurable() {
-		List<String> keys = new ArrayList<String>();
-				keys.add("square.applicationId");
-				keys.add("square.locationId");
-				keys.add("square.accessToken");
-			return keys;
-	}
+	/**
+	 * Fields that need to be configured
+	 */
+	/*
+	 * public List<String> getConfigurable() { List<String> keys = new
+	 * ArrayList<String>(); keys.add("square.applicationId");
+	 * keys.add("square.locationId"); keys.add("square.accessToken"); return keys; }
+	 */
 
 	@Override
 	public String getUniqueCode() {
@@ -546,6 +541,18 @@ public class SquarePaymentModule implements PaymentModule,ModuleStarter {
 	@Override
 	public void setSupportedCountry(List<String> arg0) {
 		supportedCountry = arg0;
+		
+	}
+
+	@Override
+	public String getConfigurable() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setConfigurable(String config) {
+		// TODO Auto-generated method stub
 		
 	}
 
